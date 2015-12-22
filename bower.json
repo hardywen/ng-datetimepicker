@@ -1,0 +1,21 @@
+{
+  "name": "ng-datetimepicker",
+  "authors": [
+    "hardywen <375480616@qq.com>"
+  ],
+  "description": "",
+  "main": "./ng-datetimepicker.js",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "datetimepicker": "~2.4.5"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
