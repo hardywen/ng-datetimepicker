@@ -36,7 +36,15 @@
                     $scope.provider = datetimepicker;
                 }],
                 link: function ($scope, element, attrs, ngModel) {
-                    $(element).datetimepicker(angular.extend($scope.provider.config, $scope.config));
+                    var config = angular.extend($scope.provider.config, $scope.config);
+                    
+                    $(element).datetimepicker(config);
+
+                    if (attrs.triggerBy) {
+                        $(attrs.triggerBy).on('click', function () {
+                            $(element).datetimepicker('show')
+                        })
+                    }
                 }
             }
         }]);
