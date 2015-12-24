@@ -30,14 +30,29 @@
                 restrict: "AE",
                 require: "?ngModel",
                 scope: {
-                    config: "="
+                    config: "=",
+                    minDate: "=",
+                    maxDate: "="
                 },
                 controller: ['$scope', 'datetimepicker', function ($scope, datetimepicker) {
                     $scope.provider = datetimepicker;
                 }],
                 link: function ($scope, element, attrs, ngModel) {
                     var config = angular.extend($scope.provider.config, $scope.config);
-                    
+
+                    config.onShow = function () {
+                        if ($scope.minDate) {
+                            this.setOptions({
+                                minDate: moment($scope.minDate).format('YYYY-MM-DD')
+                            })
+                        }
+                        if ($scope.maxDate) {
+                            this.setOptions({
+                                maxDate: moment($scope.maxDate).format('YYYY-MM-DD')
+                            })
+                        }
+                    };
+
                     $(element).datetimepicker(config);
 
                     if (attrs.triggerBy) {
