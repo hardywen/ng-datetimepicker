@@ -35,7 +35,7 @@
                     maxDate: "="
                 },
                 controller: ['$scope', 'datetimepicker', function ($scope, datetimepicker) {
-                    $scope.provider = datetimepicker;
+                    $scope.provider = _.cloneDeep(datetimepicker);
                 }],
                 link: function ($scope, element, attrs, ngModel) {
                     var config = angular.extend($scope.provider.config, $scope.config);
