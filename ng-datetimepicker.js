@@ -52,6 +52,10 @@
                             })
                         }
                     };
+                    
+                    config.onClose = function(){
+                        ngModel.$validate();
+                    };
 
                     $(element).datetimepicker(config);
 
