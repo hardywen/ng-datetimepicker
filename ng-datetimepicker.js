@@ -54,6 +54,7 @@
                     };
                     
                     config.onClose = function(){
+                        $scope.$apply();
                         ngModel.$validate();
                     };
 
